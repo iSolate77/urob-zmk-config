@@ -211,12 +211,6 @@ ZMK_BEHAVIOR(win_sleep, macro,
 
 // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
-#define DSK_PREV    &hmr RSHFT LG(LC(LEFT))  // previous desktop
-#define DSK_NEXT    &hmr LALT LG(LC(RIGHT))  // next     desktop
-#define PIN_WIN     &kp LG(LC(LS(Q)))        // pin window across desktops
-#define PIN_APP     &kp LG(LC(LS(A)))        // pin application across desktops
-#define DSK_MGR     &kp LA(GRAVE)            // desktop manager
-#define VOL_DOWN    &hmr LCTRL C_VOL_DN
 
 /* Keymap */
 
@@ -248,13 +242,13 @@ ZMK_LAYER(nav,
 
 ZMK_LAYER(fn,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp F12       &kp F7        &kp F8        &kp F9        ___             ___           &kp C_PREV    &kp C_VOL_UP  &kp C_NEXT    &win_sleep   
+    &kp F12       &kp F7        &kp F8        &kp F9        ___             ___           &kp C_PREV    &kp C_VOL_UP  &kp C_NEXT    ___
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &hml LGUI F11 &hml LALT F4  &hml LCTRL F5 &hml LSHFT F6 ___             ___           DSK_PREV      VOL_DOWN      DSK_NEXT      ___          
+    &hml LGUI F11 &hml LALT F4  &hml LCTRL F5 &hml LSHFT F6 ___             ___           ___           &kp C_VOL_DN  ___           ___          
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp F10       &kp F1        &kp F2        &kp F3        ___             PIN_APP       PIN_WIN       DSK_MGR       ___           ___          
+    &kp F10       &kp F1        &kp F2        &kp F3        ___             ___           &kp C_BRI_DN  ___           &kp C_BRI_UP  ___          
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              ___           ___             &kp C_MUTE    &kp C_PP                                               
+                                              ___           ___             &kp K_MUTE    &kp C_PP                                               
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯                                          
 )
 
