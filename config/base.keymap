@@ -30,7 +30,7 @@
 };
 
 &sl {                 // sticky-layer config
-  ignore - modifiers; // allow chording sticky mods & layers
+  ignore-modifiers; // allow chording sticky mods & layers
 };
 
 &lt { // layer-tap config
@@ -74,9 +74,9 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 // long-tap action on hold, short-tap action on all interrupts
 #define MT_CORE                                                                \
   flavor = "tap-preferred";                                                    \
-  tapping - term - ms = <220>;                                                 \
-  quick - tap - ms = <220>;                                                    \
-  hold - trigger - key - positions = <0>;
+  tapping-term-ms = <220>;                                                 \
+  quick-tap-ms = <220>;                                                    \
+  hold-trigger-key-positions = <0>;
 
 &mt { MT_CORE };
 ZMK_HOLD_TAP(mt_home, bindings = <&masked_home>, <&kp>; MT_CORE)
