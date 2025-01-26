@@ -123,9 +123,7 @@ ZMK_ADAPTIVE_KEY(
 // Tap: num-word | double-tap: sticky num-layer | Hold: num-layer.
 #define SMART_NUM &smart_num NUM 0
 ZMK_ADAPTIVE_KEY(
-    magic_key,
-    bindings = <&sl NUM>; 
-    triggers {  
+    magic_key, bindings = <&sl NUM>; magic {  
         trigger-keys = <S>;
         trigger-bindings = <&kp C>;
         triggers-max-prior-idle-ms = <350>;
