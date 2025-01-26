@@ -148,7 +148,7 @@ ZMK_ADAPTIVE_KEY(
     };
     b_trigger {  
         trigger-keys = <B>;
-        bindings = <&macro_tap &kp E &kp C &kp A &kp U &kp S &kp E>;
+        bindings = <&kp E>, <&kp C>, <&kp A>, <&kp U>, <&kp S>, <&kp E>;
         max-prior-idle-ms = <350>;
         strict-modifiers;
     };
