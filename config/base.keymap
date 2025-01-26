@@ -124,8 +124,8 @@ ZMK_ADAPTIVE_KEY(
 #define SMART_NUM &smart_num NUM 0
 ZMK_ADAPTIVE_KEY(
     magic_key, bindings = <&num_word NUM>; magic {  
-        trigger-keys = <S>;
-        bindings = <&kp C>; 
+        trigger-keys = <S>, <O>;
+        bindings = <&kp C>, <&kp K>; 
         max-prior-idle-ms = <350>;
         strict-modifiers;
     };)
