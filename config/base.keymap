@@ -145,7 +145,15 @@ ZMK_ADAPTIVE_KEY(
         bindings = <&kp O>; 
         max-prior-idle-ms = <350>;
         strict-modifiers;
-    };)
+    };
+    b_trigger {  
+        trigger-keys = <B>;
+        bindings = <E C A U S E>; 
+        max-prior-idle-ms = <350>;
+        strict-modifiers;
+    };
+              
+)
 
 // Smart-mouse, requires tri-state module.
 ZMK_TRI_STATE(
