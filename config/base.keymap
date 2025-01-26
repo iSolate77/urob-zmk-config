@@ -127,17 +127,17 @@ ZMK_ADAPTIVE_KEY(
     bindings = <&num_word NUM>; 
     triggers {  
         s_case {
-            trigger-keys = <&kp S>;
+            trigger-keys = <S>;
             bindings = <&kp C>; 
             max-prior-idle-ms = <QUICK_TAP_MS>;
         };
         o_case {
-            trigger-keys = <&kp O>;
+            trigger-keys = <O>;
             bindings = <&kp K>;
             max-prior-idle-ms = <QUICK_TAP_MS>;
         };
         p_case {
-            trigger-keys = <&kp P>;
+            trigger-keys = <P>;
             bindings = <&kp O>;
             max-prior-idle-ms = <QUICK_TAP_MS>;
         };
