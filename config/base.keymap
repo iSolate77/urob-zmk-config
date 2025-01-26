@@ -121,18 +121,18 @@ ZMK_ADAPTIVE_KEY(
 };
 
 // Tap: num-word | double-tap: sticky num-layer | Hold: num-layer.
-#define SMART_NUM &magic_key NUM 0
+#define SMART_NUM &smart_num NUM 0
+ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
+             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
+ZMK_TAP_DANCE(num_dance, bindings = <&magic_key>, <&num_word NUM>;
+              tapping-term-ms = <200>;)
 ZMK_ADAPTIVE_KEY(
-    magic_key, bindings = <&smart_num>; magic {  
-        trigger-keys = <S>, <O>;
-        bindings = <&kp C>, <&kp K>; 
+    magic_key, bindings = <&sl NUM>; magic {  
+        trigger-keys = <S>;
+        bindings = <&kp C>; 
         max-prior-idle-ms = <350>;
         strict-modifiers;
     };)
-ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
-             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
-ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
-              tapping-term-ms = <200>;)
 
 // Smart-mouse, requires tri-state module.
 ZMK_TRI_STATE(
