@@ -113,7 +113,7 @@ ZMK_ADAPTIVE_KEY(
     shift_repeat, bindings = <&sk LSHFT>; repeat {
       trigger-keys = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z>;
       bindings = <&key_repeat>;
-      max-prior-idle-ms = <1200>;
+      max-prior-idle-ms = <600>;
       strict-modifiers;
     };)
 &caps_word { // Mods deactivate caps-word, requires PR #1451. [TODO: rebase]
@@ -122,6 +122,25 @@ ZMK_ADAPTIVE_KEY(
 
 // Tap: num-word | double-tap: sticky num-layer | Hold: num-layer.
 #define SMART_NUM &smart_num NUM 0
+ZMK_ADAPTIVE_KEY(magic_key, bindings = <&num_word NUM>; triggers {
+    s_case {
+        trigger-keys = <&kp S>;
+        bindings = <&kp C>;
+        max-prior-idle-ms = <QUICK_TAP_MS>;
+    },
+    // space_case {
+    // },
+    o_case {
+        trigger-keys = <&kp O>;
+        bindings = <&kp K>;
+        max-prior-idle-ms = <QUICK_TAP_MS>;
+    },
+    p_case {
+        trigger-keys = <&kp P>;
+        bindings = <&kp O>;
+        max-prior-idle-ms = <QUICK_TAP_MS>;
+    },
+};)
 ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
              tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
 ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
