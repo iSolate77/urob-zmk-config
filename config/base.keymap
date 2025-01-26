@@ -126,9 +126,9 @@ ZMK_ADAPTIVE_KEY(
     magic_key,
     bindings = <&num_word NUM>; 
     triggers {  
-        trigger-keys = <S>;
-        bindings = <&kp C>; 
-        max-prior-idle-ms = <QUICK_TAP_MS>;
+        trigger-keys = <S>, <O>, <P>;
+        trigger-bindings = <&kp C>, <&kp K>, <&kp O>;
+        triggers-max-prior-idle-ms = <QUICK_TAP_MS>;
         strict-modifiers;
     };
 )
