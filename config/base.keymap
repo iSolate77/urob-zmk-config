@@ -128,8 +128,8 @@ ZMK_TAP_DANCE(num_dance, bindings = <&magic_key>, <&num_word NUM>;
               tapping-term-ms = <200>;)
 ZMK_ADAPTIVE_KEY(
     magic_key, bindings = <&sl NUM>; magic {  
-        trigger-keys = <S>;
-        bindings = <&kp C>; 
+        trigger-keys = <S>, <O>;
+        bindings = <&kp C>, <&kp K>; 
         max-prior-idle-ms = <350>;
         strict-modifiers;
     };)
