@@ -126,21 +126,10 @@ ZMK_ADAPTIVE_KEY(
     magic_key,
     bindings = <&num_word NUM>; 
     triggers {  
-        s_case {
-            trigger-keys = <S>;
-            bindings = <&kp C>; 
-            max-prior-idle-ms = <QUICK_TAP_MS>;
-        };
-        o_case {
-            trigger-keys = <O>;
-            bindings = <&kp K>;
-            max-prior-idle-ms = <QUICK_TAP_MS>;
-        };
-        p_case {
-            trigger-keys = <P>;
-            bindings = <&kp O>;
-            max-prior-idle-ms = <QUICK_TAP_MS>;
-        };
+        trigger-keys = <S>;
+        bindings = <&kp C>; 
+        max-prior-idle-ms = <QUICK_TAP_MS>;
+        strict-modifiers;
     };
 )
 ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
