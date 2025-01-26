@@ -133,13 +133,13 @@ ZMK_ADAPTIVE_KEY(
         bindings = <&kp C>; 
         max-prior-idle-ms = <350>;
         strict-modifiers;
-    },
+    };
     o_trigger {  
         trigger-keys = <O>;
         bindings = <&kp K>; 
         max-prior-idle-ms = <350>;
         strict-modifiers;
-    },
+    };
     p_trigger {  
         trigger-keys = <P>;
         bindings = <&kp O>; 
