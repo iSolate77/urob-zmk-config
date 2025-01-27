@@ -126,15 +126,15 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
 
-            wait-ms = <30>; 
-            tap-ms = <30>; 
+            wait-ms = <10>; 
+            tap-ms = <10>; 
 
             bindings = <
-                &macro_press &kp E  &macro_release
-                &macro_press &kp F  &macro_release
-                &macro_press &kp O  &macro_release
-                &macro_press &kp R  &macro_release
-                &macro_press &kp E  &macro_release
+                &macro_tap &kp E
+                &macro_tap &kp F
+                &macro_tap &kp O
+                &macro_tap &kp R
+                &macro_tap &kp E
             >;
         };
     };
