@@ -185,7 +185,7 @@ ZMK_ADAPTIVE_KEY(
     };
     t_trigger {  
         trigger-keys = <T>;
-        bindings = <&kp M>, <&kp E>, <&kp N>, <&kp T>; 
+        bindings = <&kp I>, <&kp O>, <&kp N>; 
         max-prior-idle-ms = <350>;
     };
     space_trigger {  
