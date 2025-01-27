@@ -120,6 +120,26 @@ ZMK_ADAPTIVE_KEY(
   /delete-property/ ignore-modifiers;
 };
 
+/ {
+    behaviors {
+        before_macro: before_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+
+            wait-ms = <30>; 
+            tap-ms = <30>; 
+
+            bindings = <
+                &macro_press &kp E  &macro_release
+                &macro_press &kp F  &macro_release
+                &macro_press &kp O  &macro_release
+                &macro_press &kp R  &macro_release
+                &macro_press &kp E  &macro_release
+            >;
+        };
+    };
+};
+
 // Tap: num-word | double-tap: sticky num-layer | Hold: num-layer.
 #define SMART_NUM &smart_num NUM 0
 ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
@@ -148,7 +168,7 @@ ZMK_ADAPTIVE_KEY(
     };
     b_trigger {  
         trigger-keys = <B>;
-        bindings = <&kp E>, <&kp F>, <&kp O>, <&kp R>, <&kp E>;
+        bindings = <&before_macro>;
         max-prior-idle-ms = <350>;
         strict-modifiers;
     };
