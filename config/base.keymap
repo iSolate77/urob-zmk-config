@@ -177,7 +177,7 @@ ZMK_ADAPTIVE_KEY(
         strict-modifiers;
     };
     space_trigger {  
-        trigger-keys = <wspc>;
+        trigger-keys = <SPACE>;
         bindings = <&kp T>, <&kp H>, <&kp E>; 
         max-prior-idle-ms = <350>;
         strict-modifiers;
