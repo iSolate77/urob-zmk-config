@@ -54,7 +54,7 @@
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS)                                 \
   ZMK_HOLD_TAP(NAME, bindings = <HOLD>, <TAP>; flavor = "balanced";            \
                tapping-term-ms = <280>; quick-tap-ms = <QUICK_TAP_MS>; \
-               require-prior-idle-ms = <150>;                            \
+               require-prior-idle-ms = <120>;                            \
                hold-trigger-on-release;                                  \
                hold-trigger-key-positions = <TRIGGER_POS>;)
 
@@ -260,7 +260,7 @@ ZMK_BASE_LAYER(Base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp B         &kp L         &kp D         &kp W         &kp Z       ,   &kp SQT       &kp F         &kp O         &kp U         &kp J       ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &hml LSHFT N  &hml LCTRL R  &hml LALT T   &hml LGUI S   &kp G       ,   &kp Y         &hmr RGUI H   &hmr LALT A   &hmr LCTRL E  &hmr LSHFT I,
+    &hml LSHFT N  &hml LCTRL R  &hml LALT T   &hml LGUI S   &kp G       ,   &kp Y         &hmr RGUI H   &hmr RALT A   &hmr LCTRL E  &hmr RSHFT I,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp Q         &kp X         &kp M         &kp C         &kp V       ,   &kp K         &kp P         &comma_morph  &dot_morph    &qexcl      ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
