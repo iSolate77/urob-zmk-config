@@ -134,7 +134,7 @@ ZMK_ADAPTIVE_KEY(
             wait-ms = <10>; 
             tap-ms = <30>; 
 
-            bindings = <&kp E &kp F &kp O &kp R &kp E>;
+            bindings = <&kp E &kp F &kp O &kp R &kp E>, <&kp SPC>;
         };
     };
 };
