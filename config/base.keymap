@@ -21,10 +21,11 @@
 
 #define XXX &none
 #define ___ &trans
+#define MEH LC(LS(LALT))
 
 /* Global defaults */
 
-#define QUICK_TAP_MS 175
+#define QUICK_TAP_MS 55
 
 &sk {
   release-after-ms = <900>;
@@ -37,8 +38,12 @@
 
 &lt {
   flavor = "balanced";
-  tapping-term-ms = <200>;
+  tapping-term-ms = <175>;
   quick-tap-ms = <QUICK_TAP_MS>;
+};
+
+&soft_off {
+    hold-time-ms = <2000>;
 };
 
 /* Homerow mods */
@@ -54,7 +59,7 @@
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS)                                 \
   ZMK_HOLD_TAP(NAME, bindings = <HOLD>, <TAP>; flavor = "balanced";            \
                tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>; \
-               require-prior-idle-ms = <140>;                            \
+               require-prior-idle-ms = <70>;                            \
                hold-trigger-on-release;                                  \
                hold-trigger-key-positions = <TRIGGER_POS>;)
 
@@ -121,21 +126,15 @@ ZMK_ADAPTIVE_KEY(
 };
 
 / {
-    behaviors {
+    macros {
         before_macro: before_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
 
-            wait-ms = <10>; 
-            tap-ms = <10>; 
+            wait-ms = <30>; 
+            tap-ms = <30>; 
 
-            bindings = <
-                &macro_tap &kp E
-                &macro_tap &kp F
-                &macro_tap &kp O
-                &macro_tap &kp R
-                &macro_tap &kp E
-            >;
+            bindings = <&kp E &kp F &kp O &kp R &kp E>;
         };
     };
 };
@@ -260,7 +259,7 @@ ZMK_BASE_LAYER(Base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp B         &kp L         &kp D         &kp W         &kp Z       ,   &kp SQT       &kp F         &kp O         &kp U         &kp J       ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &hml LSHFT N  &hml LCTRL R  &hml LALT T   &hml LGUI S   &kp G       ,   &kp Y         &hmr RGUI H   &hmr RALT A   &hmr LCTRL E  &hmr RSHFT I,
+    &hml LSHFT N  &hml LCTRL R  &hml LALT T   &hml LGUI S   &hml MEH G  ,   &hmr MEH Y    &hmr RGUI H   &hmr RALT A   &hmr LCTRL E  &hmr RSHFT I,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp Q         &kp X         &kp M         &kp C         &kp V       ,   &kp K         &kp P         &comma_morph  &dot_morph    &qexcl      ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
@@ -272,7 +271,7 @@ ZMK_BASE_LAYER(Nav,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     ___           ___           &kp LS(TAB)   &swapper      ___         ,   &kp PG_UP     NAV_BSPC      NAV_UP        NAV_DEL       ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &sk LSHFT     &sk LCTRL     &sk LALT      &sk LGUI     ___          ,  &kp PG_DN     NAV_LEFT      NAV_DOWN      NAV_RIGHT     &kp RET      ,
+    &sk LSHFT     &sk LCTRL     &sk LALT      &sk LGUI     &sk MEH      ,  &kp PG_DN     NAV_LEFT      NAV_DOWN      NAV_RIGHT     &kp RET      ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           ___           ___           ___           ___         ,   &kp INS       &kp TAB       &kp LT        &kp GT        ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
@@ -296,7 +295,7 @@ ZMK_BASE_LAYER(Num,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     ___           &kp N7        &kp N8        &kp N9        ___         ,   ___           ___           ___           ___           ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &hml LSHFT N0 &hml LCTRL N4 &hml LALT N5  &hml LGUI N6  ___         ,   ___           ___           ___           ___           ___         ,
+    ___           &hml LCTRL N4 &hml LALT N5  &hml LGUI N6  &hml MEH N0 ,   ___           ___           ___           ___           ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           &kp N1        &kp N2        &kp N3        ___         ,   ___           ___           ___           ___           ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
