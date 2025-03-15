@@ -229,8 +229,8 @@ SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
 SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
 SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
 
-// Tap: space | Shift + tap: dot -> space -> sticky shift | Hold: nav layer.
-ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&kp SPC>; flavor = "balanced";
+// Tap: space | Hold: nav layer.
+ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&kp>; flavor = "balanced";
              tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
 
 // Tap: backspace | Lshft + tap: delete | Rshft + tap: shift-delete.
@@ -258,7 +258,7 @@ ZMK_BASE_LAYER(Base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp Q         &kp X         &kp M         &kp C         &kp V       ,   &kp K         &kp P         &comma_morph  &dot_morph    &qexcl      ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              &lt_spc NAV 0 &lt FN RET  ,   SMART_NUM     MAGIC_SHIFT                                            
+                                              &lt_spc NAV SPC &lt FN RET  , SMART_NUM     MAGIC_SHIFT                                            
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯                                         
 )
 
