@@ -50,9 +50,9 @@
 / {
     wakeup_scan: wakeup_scan {
         compatible = "zmk,gpio-wakeup-trigger";
-        trigger = <&pro_micro 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>, <&pro_micro 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        trigger = <&pro_micro 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         wakeup-source;
-        extra-gpios = <&pro_micro 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>, <&pro_micro 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        extra-gpios = <&pro_micro 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 };
 
