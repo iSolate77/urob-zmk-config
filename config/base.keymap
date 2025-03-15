@@ -131,8 +131,8 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
 
-            wait-ms = <10>; 
-            tap-ms = <30>; 
+            wait-ms = <0>; 
+            tap-ms = <5>; 
 
             bindings = <&kp E &kp F &kp O &kp R &kp E>, <&kp SPC>;
         };
@@ -230,11 +230,8 @@ SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
 SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
 
 // Tap: space | Shift + tap: dot -> space -> sticky shift | Hold: nav layer.
-ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&spc_morph>; flavor = "balanced";
+ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&kp SPC>; flavor = "balanced";
              tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
-SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
-ZMK_MACRO(dot_spc, bindings = <&kp DOT &kp SPACE &sk LSHFT>; wait-ms = <0>;
-          tap-ms = <5>;)
 
 // Tap: backspace | Lshft + tap: delete | Rshft + tap: shift-delete.
 ZMK_MOD_MORPH(bs_del, bindings = <&kp BSPC>, <&kp DEL>;
