@@ -46,23 +46,6 @@
     hold-time-ms = <2000>;
 };
 
-
-/ {
-    wakeup_scan: wakeup_scan {
-        compatible = "zmk,gpio-wakeup-trigger";
-        trigger = <&pro_micro 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        wakeup-source;
-        extra-gpios = <&pro_micro 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-    };
-};
-
-/ {
-    soft_off_wakers {
-        compatible = "zmk,soft-off-wakeup-sources";
-        wakeup-sources = <&wakeup_scan>;
-    };
-};
-
 /* Homerow mods */
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4
@@ -222,7 +205,6 @@ ZMK_TRI_STATE(
         <LT1 LT2 LH0 LH1 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH0 RH1>;
     ignored-layers = <MOUSE NAV FN>;)
 
-// Alt+Tab swapper, requires tri-state module.
 ZMK_TRI_STATE(swapper, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
               ignored-key-positions = <LT2>;)
 
