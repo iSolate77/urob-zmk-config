@@ -26,6 +26,10 @@
 /* Global defaults */
 
 #define QUICK_TAP_MS 55
+#define NGRAM_MAX_DELAY_MS  80      /* n-gram lookback; < NUM_DANCE_MS */
+#define NUM_DANCE_MS        140     /* single-tap resolves fast */
+#define SMART_NUM_TERM_MS   240     /* HT hold threshold */
+#define SMART_NUM_QT_MS     QUICK_TAP_MS
 
 &sk {
   release-after-ms = <900>;
@@ -152,10 +156,10 @@ ZMK_MACRO(txt_p,      bindings = <&kp P>;)
 ZMK_MACRO(txt_c,      bindings = <&kp C>;)
 ZMK_MACRO(txt_e,      bindings = <&kp E>;)
 ZMK_MACRO(txt_ou,     bindings = <&kp O &kp U>;)
-ZMK_MACRO(txt_the,    bindings = <&kp T &kp H &kp E>;)
+ZMK_MACRO(txt_the,    bindings = <&kp T &kp H &kp E &kp SPC>;)
 ZMK_MACRO(txt_ion,    bindings = <&kp I &kp O &kp N>;)          /* t -> ion */
 ZMK_MACRO(txt_ng,     bindings = <&kp N &kp G>;)                 /* i -> ng  */
-ZMK_MACRO(txt_efore,  bindings = <&kp E &kp F &kp O &kp R &kp E>;)
+ZMK_MACRO(txt_efore,  bindings = <&kp E &kp F &kp O &kp R &kp E &kp SPC>;)
 
 / {
     /* antecedent-morph */
@@ -163,13 +167,10 @@ ZMK_MACRO(txt_efore,  bindings = <&kp E &kp F &kp O &kp R &kp E>;)
       compatible = "zmk,behavior-antecedent-morph";
       #binding-cells = <0>;
       defaults = <SMART_NUM>;
-      max-delay-ms = <90>;
+      max-delay-ms = <NGRAM_MAX_DELAY_MS>;
 
       bindings    = <&txt_ion>,<&txt_ng>,<&txt_efore>,<&txt_p>,<&txt_c>,<&txt_e>,<&txt_ou>,<&txt_the>;
       antecedents = <T           I         B            O          S        U        Y       SPACE   >;
-
-
-      max-delay-ms = <90>;
     };
 };
 
@@ -177,9 +178,9 @@ ZMK_MACRO(txt_efore,  bindings = <&kp E &kp F &kp O &kp R &kp E>;)
 // Tap: num-word | double-tap: sticky num-layer | Hold: num-layer.
 #define SMART_NUM &smart_num NUM 0
 ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
-             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
+             tapping-term-ms = <SMART_NUM_TERM_MS>; quick-tap-ms = <SMART_NUM_QT_MS>;)
 ZMK_TAP_DANCE(num_dance, bindings = <&magic_ngram>, <&num_word NUM>;
-              tapping-term-ms = <200>;)
+              tapping-term-ms = <NUM_DANCE_MS>;)
 
 // Smart-mouse, requires tri-state module.
 ZMK_TRI_STATE(
