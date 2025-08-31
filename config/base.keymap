@@ -162,7 +162,7 @@ ZMK_MACRO(txt_efore,  bindings = <&kp E &kp F &kp O &kp R &kp E>;)
     magic_ngram: magic_ngram {
       compatible = "zmk,behavior-antecedent-morph";
       #binding-cells = <0>;
-      defaults = <&num_word NUM>;
+      defaults = <SMART_NUM>;
       max-delay-ms = <90>;
 
       bindings    = <&txt_ion>,<&txt_ng>,<&txt_efore>,<&txt_p>,<&txt_c>,<&txt_e>,<&txt_ou>,<&txt_the>;
