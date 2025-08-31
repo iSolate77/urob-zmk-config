@@ -1,9 +1,13 @@
 /* source keypos definitions */
 #include "zmk-helpers/key-labels/34.h"
 
-
 /* activate bluetooth */
 #define CONFIG_WIRELESS 1
+
+/* enable advanced features */
+#define ADVANCED_COMBOS 1
+#define LINGER_KEYS 1
+#define ADAPTIVE_KEYS 1
 
 /* source the main keymap */
 #include "base.keymap"

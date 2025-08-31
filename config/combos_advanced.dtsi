@@ -1,0 +1,148 @@
+/*                KEY POSITIONS
+
+  ╭─────────────────────╮ ╭─────────────────────╮
+  │ LT4 LT3 LT2 LT1 LT0 │ │ RT0 RT1 RT2 RT3 RT4 │
+  │ LM4 LM3 LM2 LM1 LM0 │ │ RM0 RM1 RM2 RM3 RM4 │
+  │ LB4 LB3 LB2 LB1 LB0 │ │ RB0 RB1 RB2 RB3 RB4 │
+  ╰───────────╮ LH1 LH0 │ │ RH0 RH1  ╭──────────╯
+              ╰─────────╯ ╰──────────╯ */
+
+/*
+ * Advanced Combo System
+ * Inspired by moutis/zmk-config
+ * 
+ * Features:
+ * - Text editing combos (select word, find selection)
+ * - Programming symbols with smart placement
+ * - Quick app switching
+ * - Linger keys for paired symbols
+ * - H-digraph support
+ */
+
+#define COMBO_TERM_FAST 18
+#define COMBO_TERM_SLOW 30
+#define COMBO_TERM_MEDIUM 25
+
+#define COMBO_IDLE_FAST 150
+#define COMBO_IDLE_SLOW 50
+#define COMBO_IDLE_MEDIUM 100
+
+/* ---- HORIZONTAL COMBOS - LEFT HAND ---- */
+// Top row
+ZMK_COMBO(esc,      &kp ESC,        LT3 LT2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(mouse,    &smart_mouse,   LT2 LT1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(app_sw,   &kp LG(TAB),    LT1 LT0,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+// Middle row (with HRM support)
+ZMK_COMBO(tab,      &hml LS(LALT) TAB, LM3 LM2, DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(caps_word, &caps_word,    LM2 LM1,     DEF NAV NUM, COMBO_TERM_MEDIUM, COMBO_IDLE_MEDIUM)
+ZMK_COMBO(caps_lock, &kp CAPS,      LM1 LM0,     DEF NAV NUM, COMBO_TERM_MEDIUM, COMBO_IDLE_MEDIUM)
+
+// Bottom row - editing actions
+ZMK_COMBO(select_all, &kp LC(A),    LB4 LB3,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(cut,      &kp LC(X),      LB3 LB1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(copy,     &kp LC(INS),    LB3 LB2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(paste,    &kp LS(INS),    LB2 LB1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(undo,     &kp LC(Z),      LB4 LB2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(redo,     &kp LC(LS(Z)),  LB1 LB0,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+/* ---- HORIZONTAL COMBOS - RIGHT HAND ---- */
+// Top row - common punctuation
+ZMK_COMBO(colon,    &kp COLON,      RT1 RT2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(semi,     &kp SEMI,       RT2 RT3,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(excl,     &kp EXCL,       RT0 RT1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(qmark,    &kp QMARK,      RT3 RT4,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+// Middle row - brackets and parens with smart pairing
+ZMK_COMBO(lpar,     &lpar_lt,       RM1 RM2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, RS(LCTRL), KEYS_L)
+ZMK_COMBO(rpar,     &rpar_gt,       RM2 RM3,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST, RS(LALT),  KEYS_L)
+ZMK_COMBO(lt,       &kp LT,         RM1 RM2,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(gt,       &kp GT,         RM2 RM3,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+// Bottom row - brackets
+ZMK_COMBO(lbkt,     &kp LBKT,       RB1 RB2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(rbkt,     &kp RBKT,       RB2 RB3,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(lbrc,     &kp LBRC,       RB1 RB2,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(rbrc,     &kp RBRC,       RB2 RB3,         NAV    , COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+// Navigation combos
+ZMK_COMBO(bspc,     &kp BSPC,       RT1 RT3,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(del,      &kp DEL,        RT0 RT2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(enter,    &kp RET,        RB0 RB1,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+/* ---- VERTICAL COMBOS - LEFT HAND ---- */
+// Symbol column 1
+ZMK_COMBO(at,       &kp AT,         LT3 LM3,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(grave,    &kp GRAVE,      LM3 LB3,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+
+// Symbol column 2
+ZMK_COMBO(hash,     &kp HASH,       LT2 LM2,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(bslh,     &kp BSLH,       LM2 LB2,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+
+// Symbol column 3
+ZMK_COMBO(dllr,     &kp DLLR,       LT1 LM1,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(equal,    &kp EQUAL,      LM1 LB1,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+
+// Symbol column 4
+ZMK_COMBO(prcnt,    &kp PRCNT,      LT0 LM0,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(tilde,    &kp TILDE,      LM0 LB0,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+
+/* ---- VERTICAL COMBOS - RIGHT HAND ---- */
+// Symbol column 1
+ZMK_COMBO(caret,    &kp CARET,      RT0 RM0,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(under,    &kp UNDER,      RM0 RB0,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+
+// Symbol column 2
+ZMK_COMBO(amps,     &kp AMPS,       RT1 RM1,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(minus,    &kp MINUS,      RM1 RB1,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+
+// Symbol column 3
+ZMK_COMBO(star,     &kp STAR,       RT2 RM2,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(fslh,     &kp FSLH,       RM2 RB2,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+
+// Symbol column 4
+ZMK_COMBO(plus,     &kp PLUS,       RT3 RM3,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(pipe,     &kp PIPE,       RM3 RB3,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+
+/* ---- THREE FINGER COMBOS ---- */
+// Programming shortcuts
+ZMK_COMBO(arrow_fn, &arrow_fn,      RT0 RT1 RT2, DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)  // => 
+ZMK_COMBO(fat_arrow, &fat_arrow,    RT1 RT2 RT3, DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)  // =>
+ZMK_COMBO(scope_res, &scope_res,    LT1 LT2 LT3, DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)  // ::
+ZMK_COMBO(ellipsis, &ellipsis,      LM1 LM2 LM3, DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)  // ...
+
+// Text navigation
+ZMK_COMBO(word_left, &kp LC(LEFT),  LB2 LB3 LB4, DEF NAV NUM, COMBO_TERM_MEDIUM, COMBO_IDLE_MEDIUM)
+ZMK_COMBO(word_right, &kp LC(RIGHT), RB2 RB3 RB4, DEF NAV NUM, COMBO_TERM_MEDIUM, COMBO_IDLE_MEDIUM)
+ZMK_COMBO(home,     &kp HOME,       LT2 LT3 LT4, DEF NAV NUM, COMBO_TERM_MEDIUM, COMBO_IDLE_MEDIUM)
+ZMK_COMBO(end,      &kp END,        RT2 RT3 RT4, DEF NAV NUM, COMBO_TERM_MEDIUM, COMBO_IDLE_MEDIUM)
+
+/* ---- H-DIGRAPH COMBOS ---- */
+// Common English digraphs with H
+ZMK_COMBO(th,       &th_macro,      RT2 RT4,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)  // TH
+ZMK_COMBO(ch,       &ch_macro,      LM2 RT4,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)  // CH
+ZMK_COMBO(sh,       &sh_macro,      LM3 RT4,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)  // SH
+ZMK_COMBO(wh,       &wh_macro,      LT2 RT4,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)  // WH
+ZMK_COMBO(ph,       &ph_macro,      LB3 RT4,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)  // PH
+ZMK_COMBO(gh,       &gh_macro,      LT0 RT4,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)  // GH
+
+/* ---- SPECIAL COMBOS ---- */
+// Corner combos for special functions
+ZMK_COMBO(layer_nav, &mo NAV,       LT4 LM4,     DEF     NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(layer_num, &mo NUM,       RT4 RM4,     DEF NAV    , COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(layer_fn,  &mo FN,        LB4 LH1,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(layer_media, &mo MEDIA,   RB4 RH1,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+
+// Power management
+ZMK_COMBO(soft_off, &soft_off,      LT4 RT4,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(bootldr,  &bootloader,    LB4 RB4,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+
+/* ---- QUICK TEXT MACROS ---- */
+// Common programming patterns
+ZMK_COMBO(if_stmt,  &if_macro,      LT0 LT1 LM0, DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(for_loop, &for_macro,     LT1 LT2 LM1, DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(func_def, &func_macro,    LT2 LT3 LM2, DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+
+// Email and web
+ZMK_COMBO(email_sig, &email_sig,    RB1 RB2 RB3, DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(http,     &http_macro,    RT0 RT1 RM0, DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)

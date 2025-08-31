@@ -1,0 +1,304 @@
+/*
+ * Advanced Behaviors Configuration
+ * Inspired by moutis/zmk-config
+ * 
+ * Features:
+ * - Linger keys for paired symbols and text expansion
+ * - Adaptive keys for context-aware typing
+ * - Smart macros for common patterns
+ * - H-digraph support
+ */
+
+/* ---- LINGER KEY BEHAVIORS ---- */
+/*
+ * Linger keys: tap for one thing, hold for another (often paired symbols)
+ * These are especially useful for programming and text editing
+ */
+
+/ {
+    behaviors {
+        // Paired symbol linger keys
+        lk_parens: linger_key_parens {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&pair_parens>;
+        };
+        
+        lk_brackets: linger_key_brackets {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&pair_brackets>;
+        };
+        
+        lk_braces: linger_key_braces {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&pair_braces>;
+        };
+        
+        lk_quotes: linger_key_quotes {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&pair_quotes>;
+        };
+        
+        lk_angles: linger_key_angles {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&pair_angles>;
+        };
+
+        // Adaptive keys for common bigrams
+        ak_qu: adaptive_key_qu {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <100>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&qu_macro>;
+        };
+        
+        ak_tion: adaptive_key_tion {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <100>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&tion_macro>;
+        };
+        
+        ak_ment: adaptive_key_ment {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <100>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&ment_macro>;
+        };
+
+        // Smart shift for comma magic (capitalize next letter)
+        comma_magic: comma_magic {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            flavor = "balanced";
+            bindings = <&caps_word>, <&comma_morph>;
+        };
+        
+        comma_morph: comma_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&caps_word>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Smart space with auto-capitalization after period
+        smart_space: smart_space {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&space_caps>;
+        };
+
+        // Sticky app switcher
+        app_sticky: app_sticky {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <1000>;
+        };
+
+        // Smart mouse behavior
+        smart_mouse: smart_mouse {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            bindings = <&mo>, <&msc>;
+        };
+    };
+
+    /* ---- MACROS ---- */
+    macros {
+        // Paired symbol macros
+        pair_parens: pair_parens {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LPAR &kp RPAR &kp LEFT>;
+        };
+        
+        pair_brackets: pair_brackets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LBKT &kp RBKT &kp LEFT>;
+        };
+        
+        pair_braces: pair_braces {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LBRC &kp RBRC &kp LEFT>;
+        };
+        
+        pair_quotes: pair_quotes {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DQT &kp DQT &kp LEFT>;
+        };
+        
+        pair_angles: pair_angles {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LT &kp GT &kp LEFT>;
+        };
+
+        // H-digraph macros
+        th_macro: th_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp T &kp H>;
+        };
+        
+        ch_macro: ch_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp C &kp H>;
+        };
+        
+        sh_macro: sh_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp S &kp H>;
+        };
+        
+        wh_macro: wh_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp W &kp H>;
+        };
+        
+        ph_macro: ph_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp P &kp H>;
+        };
+        
+        gh_macro: gh_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp G &kp H>;
+        };
+
+        // Common bigram macros
+        qu_macro: qu_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp Q &kp U>;
+        };
+        
+        tion_macro: tion_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp T &kp I &kp O &kp N>;
+        };
+        
+        ment_macro: ment_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp M &kp E &kp N &kp T>;
+        };
+
+        // Programming symbol macros
+        arrow_fn: arrow_fn {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS &kp GT>;
+        };
+        
+        fat_arrow: fat_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL &kp GT>;
+        };
+        
+        scope_res: scope_res {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp COLON>;
+        };
+        
+        ellipsis: ellipsis {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOT &kp DOT &kp DOT>;
+        };
+
+        // Programming structure macros
+        if_macro: if_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp I &kp F &kp SPACE &kp LPAR &kp RPAR &kp SPACE &kp LBRC &kp RET>;
+        };
+        
+        for_macro: for_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp F &kp O &kp R &kp SPACE &kp LPAR &kp RPAR &kp SPACE &kp LBRC &kp RET>;
+        };
+        
+        func_macro: func_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp F &kp U &kp N &kp C &kp T &kp I &kp O &kp N &kp SPACE &kp LPAR &kp RPAR &kp SPACE &kp LBRC &kp RET>;
+        };
+
+        // Text expansion macros
+        email_sig: email_sig {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp B &kp E &kp S &kp T &kp SPACE &kp R &kp E &kp G &kp A &kp R &kp D &kp S>;
+        };
+        
+        http_macro: http_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp H &kp T &kp T &kp P &kp S &kp COLON &kp FSLH &kp FSLH>;
+        };
+
+        // Smart space that capitalizes after period
+        space_caps: space_caps {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &sk LSHIFT>;
+        };
+    };
+
+    /* ---- CONDITIONAL LAYERS ---- */
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        
+        // Activate function layer when both NAV and NUM are active
+        fn_layer {
+            if-layers = <NAV NUM>;
+            then-layer = <FN>;
+        };
+        
+        // Activate media layer when holding specific combo
+        media_layer {
+            if-layers = <NAV>;
+            then-layer = <MEDIA>;
+        };
+    };
+};

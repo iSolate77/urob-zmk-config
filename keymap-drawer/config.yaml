@@ -1,0 +1,156 @@
+# Keymap Drawer Configuration
+# Inspired by moutis/zmk-config visualization
+
+draw_config:
+  # Layout configuration
+  layout:
+    split: true
+    rows: 3
+    columns: 5
+    thumbs: 2
+    use_local_layout: false
+    
+  # Visual styling
+  svg_style: |
+    .key rect {
+      rx: 4;
+      ry: 4;
+    }
+    .held rect {
+      fill: #ffc107;
+    }
+    .combo rect {
+      stroke: #ff5722;
+      stroke-width: 2;
+    }
+    .layer-DEF { fill: #e3f2fd; }
+    .layer-NAV { fill: #fff3e0; }
+    .layer-NUM { fill: #f3e5f5; }
+    .layer-FN  { fill: #e8f5e9; }
+    .layer-SYS { fill: #fce4ec; }
+    .layer-MEDIA { fill: #fffde7; }
+    
+  # Key size and spacing
+  key_w: 60
+  key_h: 56
+  split_gap: 30
+  combo_w: 28
+  combo_h: 26
+  
+  # Visual indicators
+  show_hold_taps: true
+  show_combos: true
+  show_adaptive_keys: true
+  show_linger_keys: true
+  
+  # Legend configuration
+  legends:
+    tap: { size: 11 }
+    hold: { size: 9, style: "italic" }
+    combo: { size: 8 }
+    adaptive: { size: 7, style: "bold", color: "#4caf50" }
+    
+# Parse configuration
+parse_config:
+  # ZMK specific parsing
+  zmk_keymap: true
+  zmk_combos: true
+  
+  # Combo visualization
+  combo_diagrams:
+    horizontal: true
+    vertical: true
+    three_key: true
+    
+  # Special key handling
+  raw_binding_map:
+    # Linger keys
+    "&lk_parens 0 0": { tap: "(", hold: "( )" }
+    "&lk_brackets 0 0": { tap: "[", hold: "[ ]" }
+    "&lk_braces 0 0": { tap: "{", hold: "{ }" }
+    "&lk_quotes 0 0": { tap: '"', hold: '" "' }
+    "&lk_angles 0 0": { tap: "<", hold: "< >" }
+    
+    # Adaptive keys
+    "&ak_qu 0 0": { tap: "Q", adaptive: "QU" }
+    "&ak_tion 0 0": { tap: "T", adaptive: "TION" }
+    "&ak_ment 0 0": { tap: "M", adaptive: "MENT" }
+    
+    # Smart behaviors
+    "&comma_magic 0 0": { tap: ",", hold: "CAPS" }
+    "&smart_space 0 0": { tap: "SPC", hold: "AUTO-CAP" }
+    "&smart_mouse 0 0": { tap: "🖱️", hold: "MOUSE" }
+    
+    # H-digraphs
+    "&th_macro": "TH"
+    "&ch_macro": "CH"
+    "&sh_macro": "SH"
+    "&wh_macro": "WH"
+    "&ph_macro": "PH"
+    "&gh_macro": "GH"
+    
+    # Programming macros
+    "&arrow_fn": "->"
+    "&fat_arrow": "=>"
+    "&scope_res": "::"
+    "&ellipsis": "..."
+    "&if_macro": "if(){}"
+    "&for_macro": "for(){}"
+    "&func_macro": "function(){}"
+    
+  # Layer modifications
+  layer_names:
+    0: "Base"
+    1: "Nav"
+    2: "Fn"
+    3: "Num"
+    4: "Sys"
+    5: "Mouse"
+    6: "Media"
+    
+  # Combo grouping for visualization
+  combo_groups:
+    editing:
+      - cut
+      - copy
+      - paste
+      - undo
+      - redo
+      - select_all
+    navigation:
+      - home
+      - end
+      - word_left
+      - word_right
+    symbols:
+      - lpar
+      - rpar
+      - lbkt
+      - rbkt
+      - lbrc
+      - rbrc
+    punctuation:
+      - colon
+      - semi
+      - excl
+      - qmark
+    digraphs:
+      - th
+      - ch
+      - sh
+      - wh
+      - ph
+      - gh
+    programming:
+      - arrow_fn
+      - fat_arrow
+      - scope_res
+      - ellipsis
+      
+# Output configuration
+output:
+  format: svg
+  filename: "keymap_visual"
+  per_layer: true
+  combo_diagram: true
+  legend: true

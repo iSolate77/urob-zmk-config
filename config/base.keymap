@@ -18,6 +18,7 @@
 #define NUM 3
 #define SYS 4
 #define MOUSE 5
+#define MEDIA 6
 
 #define XXX &none
 #define ___ &trans
@@ -102,7 +103,12 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 
 /* Combos, leader key sequences, mouse emulation */
 
+#ifdef ADVANCED_COMBOS
+#include "combos_advanced.dtsi" // Advanced combo system inspired by moutis
+#include "behaviors_advanced.dtsi" // Linger keys and adaptive behaviors
+#else
 #include "combos.dtsi" // Must be sourced after HRM-combo hack.
+#endif
 #include "mouse.dtsi"
 
 /* Nav cluster */
