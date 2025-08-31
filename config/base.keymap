@@ -108,7 +108,8 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
   flavor = "tap-preferred";                                                    \
   tapping-term-ms = <220>;                                                 \
   quick-tap-ms = <220>;                                                    \
-  hold-trigger-key-positions = <0>;                
+  hold-trigger-key-positions = <0>;                \
+  hold-while-undecided-linger;
 
 &mt{MT_CORE};
 
@@ -146,7 +147,6 @@ ZMK_ADAPTIVE_KEY(
       max-prior-idle-ms = <350>;
       strict-modifiers;
     };)
-};
 
 / {
     macros {
