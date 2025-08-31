@@ -148,99 +148,39 @@ ZMK_ADAPTIVE_KEY(
       strict-modifiers;
     };)
 
-ZMK_MACRO(txt_c,   bindings = <&kp C>;)
-ZMK_MACRO(txt_h,   bindings = <&kp H>;)
-ZMK_MACRO(txt_the, bindings = <&kp T &kp H &kp E>;)
+ZMK_MACRO(txt_p,      bindings = <&kp P>;)
+ZMK_MACRO(txt_c,      bindings = <&kp C>;)
+ZMK_MACRO(txt_e,      bindings = <&kp E>;)
+ZMK_MACRO(txt_ou,     bindings = <&kp O &kp U>;)
+ZMK_MACRO(txt_the,    bindings = <&kp T &kp H &kp E>;)
+ZMK_MACRO(txt_ion,    bindings = <&kp I &kp O &kp N>;)          /* t -> ion */
+ZMK_MACRO(txt_ng,     bindings = <&kp N &kp G>;)                 /* i -> ng  */
+ZMK_MACRO(txt_efore,  bindings = <&kp E &kp F &kp O &kp R &kp E>;)
 
 / {
     /* antecedent-morph */
     magic_ngram: magic_ngram {
       compatible = "zmk,behavior-antecedent-morph";
       #binding-cells = <0>;
-      defaults = <&magic_shift_tap>;
+      defaults = <&num_word>;
+      max-delay-ms = <90>;
 
-      /* phandle array: one entry per antecedent, comma-separated */
-      bindings = <&txt_c>, <&txt_h>, <&txt_h>, <&txt_the>;
+      /* T→ion, I→ng, B→efore, O→P, S→C, U→E, Y→OU, SPACE→"the" */
+      bindings    = <&txt_ion> <&txt_ng> <&txt_efore> <&txt_p> <&txt_c> <&txt_e> <&txt_ou> <&txt_the>;
+      antecedents = <T        > <I      > <B        > <O      > <S      > <U      > <Y       > <SPACE   >;
 
-      /* ONE vector. No commas. No repeated <> groups. */
-      antecedents = <S C T SPACE>;
 
       max-delay-ms = <90>;
     };
 };
 
-/ {
-    macros {
-        before_macro: before_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-
-            wait-ms = <0>; 
-            tap-ms = <5>; 
-
-            bindings = <&kp E &kp F &kp O &kp R &kp E>, <&kp SPC>;
-        };
-    };
-};
 
 // Tap: num-word | double-tap: sticky num-layer | Hold: num-layer.
 #define SMART_NUM &smart_num NUM 0
 ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
              tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
-ZMK_TAP_DANCE(num_dance, bindings = <&magic_key>, <&num_word NUM>;
+ZMK_TAP_DANCE(num_dance, bindings = <&magic_ngram>, <&num_word NUM>;
               tapping-term-ms = <200>;)
-ZMK_ADAPTIVE_KEY(
-    magic_key, bindings = <&sl NUM>; 
-    s_trigger {  
-        trigger-keys = <S>;
-        bindings = <&kp C>; 
-        max-prior-idle-ms = <600>;
-    };
-    o_trigger {  
-        trigger-keys = <O>;
-        bindings = <&kp A>; 
-        max-prior-idle-ms = <600>;
-    };
-    p_trigger {  
-        trigger-keys = <P>;
-        bindings = <&kp O>; 
-        max-prior-idle-ms = <600>;
-    };
-    b_trigger {  
-        trigger-keys = <B>;
-        bindings = <&before_macro>;
-        max-prior-idle-ms = <600>;
-    };
-    e_trigger {  
-        trigger-keys = <E>;
-        bindings = <&kp U>; 
-        max-prior-idle-ms = <600>;
-    };
-    i_trigger {  
-        trigger-keys = <I>;
-        bindings = <&kp N>, <&kp G>; 
-        max-prior-idle-ms = <600>;
-    };
-    r_trigger {  
-        trigger-keys = <R>;
-        bindings = <&kp L>; 
-        max-prior-idle-ms = <600>;
-    };
-    t_trigger {  
-        trigger-keys = <T>;
-        bindings = <&kp I>, <&kp O>, <&kp N>; 
-        max-prior-idle-ms = <600>;
-    };
-    space_trigger {  
-        trigger-keys = <SPACE>;
-        bindings = <&kp T>, <&kp H>, <&kp E>; 
-        max-prior-idle-ms = <600>;
-    };
-    u_trigger {  
-        trigger-keys = <U>;
-        bindings = <&kp E>; 
-        max-prior-idle-ms = <600>;
-    };)
 
 // Smart-mouse, requires tri-state module.
 ZMK_TRI_STATE(
