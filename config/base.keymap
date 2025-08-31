@@ -108,7 +108,8 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
   flavor = "tap-preferred";                                                    \
   tapping-term-ms = <220>;                                                 \
   quick-tap-ms = <220>;                                                    \
-  hold-trigger-key-positions = <0>;
+  hold-trigger-key-positions = <0>;                \
+  hold-while-undecided-linger;
 
 &mt{MT_CORE};
 
@@ -143,11 +144,9 @@ ZMK_ADAPTIVE_KEY(
     shift_repeat, bindings = <&sk LSHFT>; repeat {
       trigger-keys = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z>;
       bindings = <&key_repeat>;
-      max-prior-idle-ms = <600>;
+      max-prior-idle-ms = <350>;
       strict-modifiers;
     };)
-&caps_word { // Mods deactivate caps-word, requires PR #1451. [TODO: rebase]
-  /delete-property/ ignore-modifiers;
 };
 
 / {
