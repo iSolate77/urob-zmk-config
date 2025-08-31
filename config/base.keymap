@@ -148,12 +148,11 @@ ZMK_ADAPTIVE_KEY(
       strict-modifiers;
     };)
 
-/ {
-    /* define text macros once */
-    ZMK_MACRO(txt_c,   bindings = <&kp C>;);
-    ZMK_MACRO(txt_h,   bindings = <&kp H>;);
-    ZMK_MACRO(txt_the, bindings = <&kp T &kp H &kp E>;);
+ZMK_MACRO(txt_c,   bindings = <&kp C>;)
+ZMK_MACRO(txt_h,   bindings = <&kp H>;)
+ZMK_MACRO(txt_the, bindings = <&kp T &kp H &kp E>;)
 
+/ {
     /* antecedent-morph */
     magic_ngram: magic_ngram {
       compatible = "zmk,behavior-antecedent-morph";
