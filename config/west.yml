@@ -24,6 +24,8 @@ manifest:
   remotes:
     - name: urob
       url-base: https://github.com/urob
+    - name: ssbb
+      url-base: https://github.com/ssbb
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
 
@@ -41,6 +43,9 @@ manifest:
       path: modules/zmk/helpers
     - name: zmk-tri-state
       path: modules/zmk/tri-state
+    - name: zmk-antecedent-morph
+      remote: ssbb
+      revision: v1
 
     # Temporarily overload Zephyr until
     # https://github.com/zmkfirmware/zephyr/pull/40 is merged.
