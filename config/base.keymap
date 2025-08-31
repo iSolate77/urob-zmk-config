@@ -149,7 +149,6 @@ ZMK_ADAPTIVE_KEY(
     };)
 
 / {
-  behaviors {
     /* define text macros once */
     ZMK_MACRO(txt_c,   bindings = <&kp C>;);
     ZMK_MACRO(txt_h,   bindings = <&kp H>;);
@@ -169,7 +168,6 @@ ZMK_ADAPTIVE_KEY(
 
       max-delay-ms = <90>;
     };
-  };
 }
 
 / {
