@@ -108,8 +108,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
   flavor = "tap-preferred";                                                    \
   tapping-term-ms = <220>;                                                 \
   quick-tap-ms = <220>;                                                    \
-  hold-trigger-key-positions = <0>;                \
-  hold-while-undecided-linger;
+  hold-trigger-key-positions = <0>;                
 
 &mt{MT_CORE};
 
