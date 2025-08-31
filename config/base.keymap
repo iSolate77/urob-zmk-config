@@ -148,19 +148,29 @@ ZMK_ADAPTIVE_KEY(
       strict-modifiers;
     };)
 
-/* Previous-key n-grams for your magic key tap */
-magic_ngram: magic_ngram {
-  compatible = "zmk,behavior-antecedent-morph";
-  #binding-cells = <0>;
+/ {
+  behaviors {
+    /* define text macros once */
+    ZMK_MACRO(txt_c,   bindings = <&kp C>;);
+    ZMK_MACRO(txt_h,   bindings = <&kp H>;);
+    ZMK_MACRO(txt_the, bindings = <&kp T &kp H &kp E>;);
 
-  /* Fallback = your existing magic tap path */
-  defaults = <&magic_shift_tap>;
+    /* antecedent-morph */
+    magic_ngram: magic_ngram {
+      compatible = "zmk,behavior-antecedent-morph";
+      #binding-cells = <0>;
+      defaults = <&magic_shift_tap>;
 
-  /* S→"c", C→"h", T→"h", SPACE→"the" (examples) */
-  bindings    = <&txt "c">, <&txt "h">, <&txt "h">, <&txt "the">;
-  antecedents = <S>,        <C>,        <T>,        <SPACE>;
-  max-delay-ms = <90>;   /* 70–110 for symbol/letter chords */
-};
+      /* phandle array: one entry per antecedent, comma-separated */
+      bindings = <&txt_c>, <&txt_h>, <&txt_h>, <&txt_the>;
+
+      /* ONE vector. No commas. No repeated <> groups. */
+      antecedents = <S C T SPACE>;
+
+      max-delay-ms = <90>;
+    };
+  };
+}
 
 / {
     macros {
