@@ -113,7 +113,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
   tapping-term-ms = <220>;                                                 \
   quick-tap-ms = <220>;                                                    \
   hold-trigger-key-positions = <0>;                \
-  hold-while-undecided-linger;
+  //hold-while-undecided-linger;
 
 &mt{MT_CORE};
 
@@ -161,14 +161,13 @@ ZMK_MACRO(txt_ion,    bindings = <&kp I &kp O &kp N>;)          /* t -> ion */
 ZMK_MACRO(txt_ng,     bindings = <&kp N &kp G>;)                 /* i -> ng  */
 ZMK_MACRO(txt_efore,  bindings = <&kp E &kp F &kp O &kp R &kp E &kp SPACE>;)
 
-#define SMART_NUM &smart_num NUM 0
 
 / {
     /* antecedent-morph */
     magic_ngram: magic_ngram {
       compatible = "zmk,behavior-antecedent-morph";
       #binding-cells = <0>;
-      defaults = <SMART_NUM>;
+      defaults = <&num_word NUM>;
       max-delay-ms = <NGRAM_MAX_DELAY_MS>;
 
       bindings    = <&txt_ion>,<&txt_ng>,<&txt_efore>,<&txt_p>,<&txt_c>,<&txt_e>,<&txt_ou>,<&txt_the>;
@@ -177,10 +176,11 @@ ZMK_MACRO(txt_efore,  bindings = <&kp E &kp F &kp O &kp R &kp E &kp SPACE>;)
 };
 
 
+#define SMART_NUM &smart_num NUM 0
 // Tap: num-word | double-tap: sticky num-layer | Hold: num-layer.
 ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
              tapping-term-ms = <SMART_NUM_TERM_MS>; quick-tap-ms = <SMART_NUM_QT_MS>;)
-ZMK_TAP_DANCE(num_dance, bindings = <&magic_ngram>, <&num_word NUM>;
+ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&magic_ngram>;
               tapping-term-ms = <NUM_DANCE_MS>;)
 
 // Smart-mouse, requires tri-state module.
@@ -243,7 +243,7 @@ ZMK_BASE_LAYER(Base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp Q         &kp X         &kp M         &kp C         &kp V       ,   &kp K         &kp P         &comma_morph  &dot_morph    &qexcl      ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              &lt_spc NAV SPC &lt FN RET  , &magic_ngram  MAGIC_SHIFT                                            
+                                              &lt_spc NAV SPC &lt FN RET  , SMART_NUM     MAGIC_SHIFT                                            
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯                                         
 )
 
