@@ -167,7 +167,7 @@ ZMK_MACRO(txt_the, bindings = <&kp T &kp H &kp E>;)
 
       max-delay-ms = <90>;
     };
-}
+};
 
 / {
     macros {
