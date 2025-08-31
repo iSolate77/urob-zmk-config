@@ -159,7 +159,7 @@ ZMK_MACRO(txt_ou,     bindings = <&kp O &kp U>;)
 ZMK_MACRO(txt_the,    bindings = <&kp T &kp H &kp E &kp SPACE>;)
 ZMK_MACRO(txt_ion,    bindings = <&kp I &kp O &kp N>;)          /* t -> ion */
 ZMK_MACRO(txt_ng,     bindings = <&kp N &kp G>;)                 /* i -> ng  */
-ZMK_MACRO(txt_efore,  bindings = <&kp E &kp F &kp O &kp R &kp E &kp SAPCE>;)
+ZMK_MACRO(txt_efore,  bindings = <&kp E &kp F &kp O &kp R &kp E &kp SPACE>;)
 
 / {
     /* antecedent-morph */
