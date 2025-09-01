@@ -9,6 +9,29 @@
  * - H-digraph support
  */
 
+/* ---- ADAPTIVE KEYS ---- */
+// These use the zmk-adaptive-key module for context-aware typing
+
+// Adaptive Q that becomes QU after certain triggers
+ZMK_ADAPTIVE_KEY(ak_Q, bindings = <&kp Q>; 
+    // After common letters that precede QU
+    repeat {
+        trigger-keys = <S E A I L N>;  // squ, equ, aqu, iqu, lqu, nqu
+        bindings = <&qu_macro>;
+        max-prior-idle-ms = <250>;
+    };
+)
+
+// Magic comma - tap after letter to capitalize it
+ZMK_ADAPTIVE_KEY(comma_magic, bindings = <&kp COMMA>;
+    // After any letter, delete comma and capitalize
+    repeat {
+        trigger-keys = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z>;
+        bindings = <&magic_comma_caps>;
+        max-prior-idle-ms = <500>;
+    };
+)
+
 /* ---- LINGER KEY BEHAVIORS ---- */
 /*
  * Linger keys: tap for one thing, hold for another (often paired symbols)
@@ -58,51 +81,6 @@
             bindings = <&kp>, <&pair_angles>;
         };
 
-        // Adaptive keys for common bigrams
-        ak_qu: adaptive_key_qu {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <100>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&qu_macro>;
-        };
-        
-        ak_tion: adaptive_key_tion {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <100>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&tion_macro>;
-        };
-        
-        ak_ment: adaptive_key_ment {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <100>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&ment_macro>;
-        };
-
-        // Smart shift for comma magic (capitalize next letter)
-        comma_magic: comma_magic {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
-            flavor = "balanced";
-            bindings = <&caps_word>, <&comma_caps_morph>;
-        };
-        
-        comma_caps_morph: comma_caps_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&caps_word>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         // Smart space with auto-capitalization after period
         smart_space: smart_space {
             compatible = "zmk,behavior-hold-tap";
@@ -124,6 +102,13 @@
 
     /* ---- MACROS ---- */
     macros {
+        // Magic comma implementation - delete comma and send shift
+        magic_comma_caps: magic_comma_caps {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC &sk LSHIFT>;
+        };
+
         // Paired symbol macros
         pair_parens: pair_parens {
             compatible = "zmk,behavior-macro";
@@ -275,6 +260,4 @@
             bindings = <&kp SPACE &sk LSHIFT>;
         };
     };
-
-
 };
