@@ -106,7 +106,6 @@ parse_config:
     3: "Num"
     4: "Sys"
     5: "Mouse"
-    6: "Media"
     
   # Combo grouping for visualization
   combo_groups:

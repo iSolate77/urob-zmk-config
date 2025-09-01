@@ -93,10 +93,10 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
             flavor = "balanced";
-            bindings = <&caps_word>, <&comma_morph>;
+            bindings = <&caps_word>, <&comma_caps_morph>;
         };
         
-        comma_morph: comma_morph {
+        comma_caps_morph: comma_caps_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&caps_word>;
@@ -276,20 +276,5 @@
         };
     };
 
-    /* ---- CONDITIONAL LAYERS ---- */
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        
-        // Activate function layer when both NAV and NUM are active
-        fn_layer {
-            if-layers = <NAV NUM>;
-            then-layer = <FN>;
-        };
-        
-        // Activate media layer when holding specific combo
-        media_layer {
-            if-layers = <NAV>;
-            then-layer = <MEDIA>;
-        };
-    };
+
 };
