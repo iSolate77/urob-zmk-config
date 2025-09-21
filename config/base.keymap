@@ -105,7 +105,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 
 // Trigger tap-action on all interrupts.
 #define MT_CORE                                                                \
-  flavor = "tap-preferred";                                                    \
+  flavor = "hold-tap";                                                    \
   tapping-term-ms = <220>;                                                 \
   quick-tap-ms = <220>;                                                    \
   hold-trigger-key-positions = <0>;                \
