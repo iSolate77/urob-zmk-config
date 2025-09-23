@@ -371,7 +371,7 @@ ZMK_ADAPTIVE_KEY(
     };
     e_trigger {  
         trigger-keys = <E>;
-        bindings = <&kp E>, <&kp U>;  // Direct for 2-char
+        bindings = <&kp U>;  // Direct for 2-char
         max-prior-idle-ms = <600>;
     };
     f_trigger {  
