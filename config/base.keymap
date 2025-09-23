@@ -342,10 +342,9 @@ ZMK_ADAPTIVE_KEY(
 ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; 
              flavor = "tap-preferred";  // Optimized for faster tap detection
              tapping-term-ms = <160>;   // Reduced from 200ms
-             quick-tap-ms = <QUICK_TAP_MS>;
-             require-prior-idle-ms = <80>;)
+             quick-tap-ms = <QUICK_TAP_MS>;)
 ZMK_TAP_DANCE(num_dance, bindings = <&magic_key>, <&num_word NUM>;
-              tapping-term-ms = <150>;)  // Reduced from 200ms for faster recognition
+              tapping-term-ms = <120>;)  // Reduced from 200ms for faster recognition
 
 // Complete magic key implementation with all triggers and optimized timing
 ZMK_ADAPTIVE_KEY(
@@ -353,122 +352,122 @@ ZMK_ADAPTIVE_KEY(
     a_trigger {  
         trigger-keys = <A>;
         bindings = <&ation_macro>;
-        max-prior-idle-ms = <200>;  // Optimized from 600ms
+        max-prior-idle-ms = <600>;  // Optimized from 600ms
     };
     b_trigger {  
         trigger-keys = <B>;
         bindings = <&before_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     c_trigger {  
         trigger-keys = <C>;
         bindings = <&ction_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     d_trigger {  
         trigger-keys = <D>;
         bindings = <&dition_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     e_trigger {  
         trigger-keys = <E>;
         bindings = <&kp E>, <&kp U>;  // Direct for 2-char
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     f_trigger {  
         trigger-keys = <F>;
         bindings = <&fy_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     g_trigger {  
         trigger-keys = <G>;
         bindings = <&gs_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     h_trigger {  
         trigger-keys = <H>;
         bindings = <&hy_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     j_trigger {  
         trigger-keys = <J>;
         bindings = <&just_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     l_trigger {  
         trigger-keys = <L>;
         bindings = <&lation_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     m_trigger {  
         trigger-keys = <M>;
         bindings = <&ment_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     n_trigger {  
         trigger-keys = <N>;
         bindings = <&nion_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     o_trigger {  
         trigger-keys = <O>;
         bindings = <&oa_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     p_trigger {  
         trigger-keys = <P>;
         bindings = <&ph_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     q_trigger {  
         trigger-keys = <Q>;
         bindings = <&quen_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     r_trigger {  
         trigger-keys = <R>;
         bindings = <&rl_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     s_trigger {  
         trigger-keys = <S>;
         bindings = <&sc_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     t_trigger {  
         trigger-keys = <T>;
         bindings = <&tment_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     u_trigger {  
         trigger-keys = <U>;
         bindings = <&ue_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     v_trigger {  
         trigger-keys = <V>;
         bindings = <&ver_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     w_trigger {  
         trigger-keys = <W>;
         bindings = <&ws_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     y_trigger {  
         trigger-keys = <Y>;
         bindings = <&y_apos_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     z_trigger {  
         trigger-keys = <Z>;
         bindings = <&zation_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     space_trigger {  
         trigger-keys = <SPACE>;
         bindings = <&the_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };)
 
 // Smart-mouse, requires tri-state module.
