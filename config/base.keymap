@@ -389,11 +389,6 @@ ZMK_ADAPTIVE_KEY(
         bindings = <&hy_macro>;
         max-prior-idle-ms = <200>;
     };
-    i_trigger {  
-        trigger-keys = <I>;
-        bindings = <&ion_macro>;
-        max-prior-idle-ms = <200>;
-    };
     j_trigger {  
         trigger-keys = <J>;
         bindings = <&just_macro>;
