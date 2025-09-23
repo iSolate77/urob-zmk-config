@@ -151,329 +151,84 @@ ZMK_ADAPTIVE_KEY(
 
 / {
     macros {
-        // Optimized macros with 1ms timing for instant response
-        ation_macro: ation_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp T &kp I &kp O &kp N>;
-        };
-        
         before_macro: before_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+
             wait-ms = <0>; 
-            tap-ms = <1>;
-            bindings = <&kp E &kp F &kp O &kp R &kp E>;
+            tap-ms = <1>; 
+
+            bindings = <&kp E &kp F &kp O &kp R &kp E>, <&kp SPC>;
         };
-        
-        ction_macro: ction_macro {
+        ation_macro: action_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+
             wait-ms = <0>;
             tap-ms = <1>;
+
             bindings = <&kp T &kp I &kp O &kp N>;
-        };
-        
-        dition_macro: dition_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp I &kp T &kp I &kp O &kp N>;
-        };
-        
-        fy_macro: fy_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp Y>;
-        };
-        
-        gs_macro: gs_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp S>;
-        };
-        
-        hy_macro: hy_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp Y>;
-        };
-        
-        just_macro: just_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp U &kp S &kp T>;
-        };
-        
-        lation_macro: lation_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp A &kp T &kp I &kp O &kp N>;
-        };
-        
-        ment_macro: ment_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp E &kp N &kp T>;
-        };
-        
-        nion_macro: nion_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp I &kp O &kp N>;
-        };
-        
-        oa_macro: oa_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp A>;
-        };
-        
-        ph_macro: ph_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp H>;
-        };
-        
-        quen_macro: quen_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp U &kp E &kp N>;
-        };
-        
-        rl_macro: rl_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp L>;
-        };
-        
-        sc_macro: sc_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp C>;
-        };
-        
-        tment_macro: tment_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp M &kp E &kp N &kp T>;
-        };
-        
-        ue_macro: ue_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp E>;
-        };
-        
-        ver_macro: ver_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp E &kp R>;
-        };
-        
-        ws_macro: ws_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp S>;
-        };
-        
-        y_apos_macro: y_apos_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp APOS>;
-        };
-        
-        zation_macro: zation_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp A &kp T &kp I &kp O &kp N>;
-        };
-        
-        the_macro: the_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <1>;
-            bindings = <&kp T &kp H &kp E>;
         };
     };
 };
 
-// Optimized tap-dance and smart-num for faster magic key access
+// Tap: num-word | double-tap: sticky num-layer | Hold: num-layer.
 #define SMART_NUM &smart_num NUM 0
-ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; 
-             flavor = "tap-preferred";  // Optimized for faster tap detection
-             tapping-term-ms = <150>;   // Reduced from 200ms
-             quick-tap-ms = <QUICK_TAP_MS>;)
+ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
+             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
 ZMK_TAP_DANCE(num_dance, bindings = <&magic_key>, <&num_word NUM>;
-              tapping-term-ms = <120>;)  // Reduced from 200ms for faster recognition
-
-// Complete magic key implementation with all triggers and optimized timing
+              tapping-term-ms = <200>;)
 ZMK_ADAPTIVE_KEY(
     magic_key, bindings = <&sl NUM>; 
-    a_trigger {  
-        trigger-keys = <A>;
-        bindings = <&ation_macro>;
-        max-prior-idle-ms = <200>;  // Optimized from 600ms
+    s_trigger {  
+        trigger-keys = <S>;
+        bindings = <&kp C>; 
+        max-prior-idle-ms = <600>;
+    };
+    o_trigger {  
+        trigger-keys = <O>;
+        bindings = <&kp A>; 
+        max-prior-idle-ms = <600>;
+    };
+    p_trigger {  
+        trigger-keys = <P>;
+        bindings = <&kp O>; 
+        max-prior-idle-ms = <600>;
     };
     b_trigger {  
         trigger-keys = <B>;
         bindings = <&before_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    c_trigger {  
-        trigger-keys = <C>;
-        bindings = <&ction_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    d_trigger {  
-        trigger-keys = <D>;
-        bindings = <&dition_macro>;
-        max-prior-idle-ms = <200>;
+        max-prior-idle-ms = <600>;
     };
     e_trigger {  
         trigger-keys = <E>;
-        bindings = <&kp E>, <&kp U>;  // Direct for 2-char
-        max-prior-idle-ms = <200>;
-    };
-    f_trigger {  
-        trigger-keys = <F>;
-        bindings = <&fy_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    g_trigger {  
-        trigger-keys = <G>;
-        bindings = <&gs_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    h_trigger {  
-        trigger-keys = <H>;
-        bindings = <&hy_macro>;
-        max-prior-idle-ms = <200>;
+        bindings = <&kp U>; 
+        max-prior-idle-ms = <600>;
     };
     i_trigger {  
         trigger-keys = <I>;
-        bindings = <&ion_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    j_trigger {  
-        trigger-keys = <J>;
-        bindings = <&just_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    l_trigger {  
-        trigger-keys = <L>;
-        bindings = <&lation_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    m_trigger {  
-        trigger-keys = <M>;
-        bindings = <&ment_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    n_trigger {  
-        trigger-keys = <N>;
-        bindings = <&nion_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    o_trigger {  
-        trigger-keys = <O>;
-        bindings = <&oa_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    p_trigger {  
-        trigger-keys = <P>;
-        bindings = <&ph_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    q_trigger {  
-        trigger-keys = <Q>;
-        bindings = <&quen_macro>;
-        max-prior-idle-ms = <200>;
+        bindings = <&kp N>, <&kp G>; 
+        max-prior-idle-ms = <600>;
     };
     r_trigger {  
         trigger-keys = <R>;
-        bindings = <&rl_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    s_trigger {  
-        trigger-keys = <S>;
-        bindings = <&sc_macro>;
-        max-prior-idle-ms = <200>;
+        bindings = <&kp L>; 
+        max-prior-idle-ms = <600>;
     };
     t_trigger {  
         trigger-keys = <T>;
-        bindings = <&tment_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    u_trigger {  
-        trigger-keys = <U>;
-        bindings = <&ue_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    v_trigger {  
-        trigger-keys = <V>;
-        bindings = <&ver_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    w_trigger {  
-        trigger-keys = <W>;
-        bindings = <&ws_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    y_trigger {  
-        trigger-keys = <Y>;
-        bindings = <&y_apos_macro>;
-        max-prior-idle-ms = <200>;
-    };
-    z_trigger {  
-        trigger-keys = <Z>;
-        bindings = <&zation_macro>;
-        max-prior-idle-ms = <200>;
+        bindings = <&kp I>, <&kp O>, <&kp N>; 
+        max-prior-idle-ms = <600>;
     };
     space_trigger {  
         trigger-keys = <SPACE>;
-        bindings = <&the_macro>;
-        max-prior-idle-ms = <200>;
+        bindings = <&kp T>, <&kp H>, <&kp E>; 
+        max-prior-idle-ms = <600>;
+    };
+    u_trigger {  
+        trigger-keys = <U>;
+        bindings = <&kp E>; 
+        max-prior-idle-ms = <600>;
     };)
 
 // Smart-mouse, requires tri-state module.
