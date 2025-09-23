@@ -150,13 +150,13 @@ ZMK_ADAPTIVE_KEY(
 
 / {
     macros {
-        // Optimized macros with proper buffering
+        // Optimized macros with pause_for_release to prevent interruption
         ation_macro: ation_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp T &kp I &kp O &kp N>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp T &kp I &kp O &kp N>;
         };
         
         before_macro: before_macro {
@@ -164,7 +164,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>; 
             tap-ms = <1>;
-            bindings = <&macro_tap &kp E &kp F &kp O &kp R &kp E>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp E &kp F &kp O &kp R &kp E>;
         };
         
         ction_macro: ction_macro {
@@ -172,7 +172,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp T &kp I &kp O &kp N>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp T &kp I &kp O &kp N>;
         };
         
         dition_macro: dition_macro {
@@ -180,7 +180,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp I &kp T &kp I &kp O &kp N>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp I &kp T &kp I &kp O &kp N>;
         };
         
         fy_macro: fy_macro {
@@ -188,7 +188,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp Y>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp Y>;
         };
         
         gs_macro: gs_macro {
@@ -196,7 +196,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp S>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp S>;
         };
         
         hy_macro: hy_macro {
@@ -204,7 +204,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp Y>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp Y>;
         };
         
         just_macro: just_macro {
@@ -212,7 +212,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp U &kp S &kp T>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp U &kp S &kp T>;
         };
         
         lation_macro: lation_macro {
@@ -220,7 +220,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp A &kp T &kp I &kp O &kp N>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp A &kp T &kp I &kp O &kp N>;
         };
         
         ment_macro: ment_macro {
@@ -228,7 +228,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp E &kp N &kp T>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp E &kp N &kp T>;
         };
         
         nion_macro: nion_macro {
@@ -236,7 +236,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp I &kp O &kp N>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp I &kp O &kp N>;
         };
         
         oa_macro: oa_macro {
@@ -244,7 +244,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp A>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp A>;
         };
         
         ph_macro: ph_macro {
@@ -252,7 +252,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp H>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp H>;
         };
         
         quen_macro: quen_macro {
@@ -260,7 +260,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp U &kp E &kp N>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp U &kp E &kp N>;
         };
         
         rl_macro: rl_macro {
@@ -268,7 +268,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp L>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp L>;
         };
         
         sc_macro: sc_macro {
@@ -276,7 +276,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp C>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp C>;
         };
         
         tment_macro: tment_macro {
@@ -284,7 +284,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp M &kp E &kp N &kp T>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp M &kp E &kp N &kp T>;
         };
         
         ue_macro: ue_macro {
@@ -292,7 +292,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp E>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp E>;
         };
         
         ver_macro: ver_macro {
@@ -300,7 +300,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp E &kp R>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp E &kp R>;
         };
         
         ws_macro: ws_macro {
@@ -308,7 +308,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp S>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp S>;
         };
         
         y_apos_macro: y_apos_macro {
@@ -316,7 +316,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp APOS>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp APOS>;
         };
         
         zation_macro: zation_macro {
@@ -324,7 +324,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp A &kp T &kp I &kp O &kp N>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp A &kp T &kp I &kp O &kp N>;
         };
         
         the_macro: the_macro {
@@ -332,7 +332,7 @@ ZMK_ADAPTIVE_KEY(
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <1>;
-            bindings = <&macro_tap &kp T &kp H &kp E>;
+            bindings = <&macro_pause_for_release>, <&macro_tap &kp T &kp H &kp E>;
         };
     };
 };
