@@ -155,7 +155,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp T &kp I &kp O &kp N>;
         };
         
@@ -163,7 +163,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>; 
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp E &kp F &kp O &kp R &kp E>;
         };
         
@@ -171,7 +171,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp T &kp I &kp O &kp N>;
         };
         
@@ -179,7 +179,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp I &kp T &kp I &kp O &kp N>;
         };
         
@@ -187,7 +187,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp Y>;
         };
         
@@ -195,7 +195,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp S>;
         };
         
@@ -203,7 +203,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp Y>;
         };
         
@@ -211,7 +211,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp U &kp S &kp T>;
         };
         
@@ -219,7 +219,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp A &kp T &kp I &kp O &kp N>;
         };
         
@@ -227,7 +227,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp E &kp N &kp T>;
         };
         
@@ -235,7 +235,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp I &kp O &kp N>;
         };
         
@@ -243,7 +243,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp A>;
         };
         
@@ -251,7 +251,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp H>;
         };
         
@@ -259,7 +259,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp U &kp E &kp N>;
         };
         
@@ -267,7 +267,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp L>;
         };
         
@@ -275,7 +275,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp C>;
         };
         
@@ -283,7 +283,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp M &kp E &kp N &kp T>;
         };
         
@@ -291,7 +291,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp E>;
         };
         
@@ -299,7 +299,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp E &kp R>;
         };
         
@@ -307,7 +307,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp S>;
         };
         
@@ -315,7 +315,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp APOS>;
         };
         
@@ -323,7 +323,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp A &kp T &kp I &kp O &kp N>;
         };
         
@@ -331,7 +331,7 @@ ZMK_ADAPTIVE_KEY(
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <1>;
+            tap-ms = <3>;
             bindings = <&kp T &kp H &kp E>;
         };
     };
