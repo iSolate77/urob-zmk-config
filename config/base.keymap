@@ -25,7 +25,7 @@
 
 /* Global defaults */
 
-#define QUICK_TAP_MS 55
+#define QUICK_TAP_MS 100
 
 &sk {
   release-after-ms = <900>;
@@ -37,8 +37,8 @@
 };
 
 &lt {
-  flavor = "balanced";
-  tapping-term-ms = <175>;
+  flavor = "tap-preferred";
+  tapping-term-ms = <145>;
   quick-tap-ms = <QUICK_TAP_MS>;
 };
 
@@ -136,8 +136,8 @@ MASK_MODS(masked_end, (MOD_LCTL), &kp END)
 // Shift + tap/ double-tap: caps-word | Hold: shift.
 #define MAGIC_SHIFT &magic_shift LSHFT 0
 ZMK_HOLD_TAP(magic_shift, bindings = <&kp>, <&magic_shift_tap>;
-             flavor = "balanced"; tapping-term-ms = <200>;
-             quick-tap-ms = <QUICK_TAP_MS>;)
+             flavor = "tap-preferred"; tapping-term-ms = <140>;
+             quick-tap-ms = <QUICK_TAP_MS>; require-prior-idle-ms = <60>;)
 ZMK_MOD_MORPH(magic_shift_tap, bindings = <&shift_repeat>, <&caps_word>;
               mods = <(MOD_LSFT)>;)
 ZMK_ADAPTIVE_KEY(
@@ -341,10 +341,11 @@ ZMK_ADAPTIVE_KEY(
 #define SMART_NUM &smart_num NUM 0
 ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; 
              flavor = "tap-preferred";  // Optimized for faster tap detection
-             tapping-term-ms = <150>;   // Reduced from 200ms
-             quick-tap-ms = <QUICK_TAP_MS>;)
+             tapping-term-ms = <160>;   // Reduced from 200ms
+             quick-tap-ms = <QUICK_TAP_MS>;
+             require-prior-idle-ms = <80>;)
 ZMK_TAP_DANCE(num_dance, bindings = <&magic_key>, <&num_word NUM>;
-              tapping-term-ms = <120>;)  // Reduced from 200ms for faster recognition
+              tapping-term-ms = <150>;)  // Reduced from 200ms for faster recognition
 
 // Complete magic key implementation with all triggers and optimized timing
 ZMK_ADAPTIVE_KEY(
@@ -502,8 +503,9 @@ SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
 SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
 
 // Tap: space | Hold: nav layer.
-ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&kp>; flavor = "balanced";
-             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
+ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&kp>; flavor = "tap-preferred";
+             tapping-term-ms = <140>; quick-tap-ms = <QUICK_TAP_MS>;
+             require-prior-idle-ms = <60>;)
 
 // Tap: backspace | Lshft + tap: delete | Rshft + tap: shift-delete.
 ZMK_MOD_MORPH(bs_del, bindings = <&kp BSPC>, <&kp DEL>;
