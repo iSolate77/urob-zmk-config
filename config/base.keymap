@@ -515,8 +515,8 @@ SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
 SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
 
 // Tap: space | Hold: nav layer.
-ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&kp>; flavor = "tap-preferred";
-             tapping-term-ms = <140>; quick-tap-ms = <QUICK_TAP_MS>;)
+ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&kp>; flavor = "balanced";
+             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
 
 // Tap: backspace | Lshft + tap: delete | Rshft + tap: shift-delete.
 ZMK_MOD_MORPH(bs_del, bindings = <&kp BSPC>, <&kp DEL>;
